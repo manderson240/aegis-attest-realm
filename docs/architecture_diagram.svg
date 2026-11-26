@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="DejaVu Sans, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#4ade80"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="#08101f"/>
+  <text x="60" y="70" fill="#e2e8f0" font-size="34" font-weight="bold">Aegis Attest</text>
+  <text x="60" y="108" fill="#94a3b8" font-size="20">How evidence gets pinned to an agent on Gno.land onyx-1, and how anyone checks it later</text>
+
+  <!-- left: writers -->
+  <g font-size="19">
+    <rect x="60" y="170" width="330" height="120" rx="14" fill="#0f1a2e" stroke="#38bdf8" stroke-width="3"/>
+    <text x="85" y="210" fill="#e2e8f0" font-size="22" font-weight="bold">Agent</text>
+    <text x="85" y="242" fill="#94a3b8">RegisterAgent(handle,</text>
+    <text x="85" y="268" fill="#94a3b8">  capabilities)</text>
+
+    <rect x="60" y="340" width="330" height="150" rx="14" fill="#0f1a2e" stroke="#38bdf8" stroke-width="3"/>
+    <text x="85" y="380" fill="#e2e8f0" font-size="22" font-weight="bold">Any caller (reviewer)</text>
+    <text x="85" y="412" fill="#94a3b8">sha256sum evidence</text>
+    <text x="85" y="438" fill="#94a3b8">SubmitAttestation(agent, task,</text>
+    <text x="85" y="464" fill="#94a3b8">  hash, score 0..10000, note)</text>
+
+    <rect x="60" y="540" width="330" height="110" rx="14" fill="#0f1a2e" stroke="#38bdf8" stroke-width="3"/>
+    <text x="85" y="580" fill="#e2e8f0" font-size="22" font-weight="bold">Author only</text>
+    <text x="85" y="612" fill="#94a3b8">RevokeAttestation(id, reason)</text>
+
+    <text x="85" y="700" fill="#64748b" font-size="17">writes via gnokey or the txlink</text>
+    <text x="85" y="724" fill="#64748b" font-size="17">form, direct user calls only</text>
+  </g>
+
+  <!-- center: realm -->
+  <rect x="520" y="160" width="560" height="580" rx="18" fill="#0b1426" stroke="#0284c7" stroke-width="4"/>
+  <text x="550" y="205" fill="#e2e8f0" font-size="24" font-weight="bold">realm aegis_attest.gno</text>
+  <g font-size="18">
+    <rect x="550" y="235" width="500" height="92" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="570" y="268" fill="#7dd3fc">agents (avl tree)</text>
+    <text x="570" y="298" fill="#94a3b8">handle, counts, score in bps</text>
+
+    <rect x="550" y="345" width="500" height="92" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="570" y="378" fill="#7dd3fc">attestations (avl tree)</text>
+    <text x="570" y="408" fill="#94a3b8">author, task, hash, score, status</text>
+
+    <rect x="550" y="455" width="500" height="92" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="570" y="488" fill="#7dd3fc">index agent | task | hash</text>
+    <text x="570" y="518" fill="#94a3b8">refuses duplicates, powers verify</text>
+
+    <rect x="550" y="565" width="500" height="150" rx="10" fill="#0f1a2e" stroke="#16a34a" stroke-width="2"/>
+    <text x="570" y="598" fill="#4ade80">score rule</text>
+    <text x="570" y="630" fill="#94a3b8">first score sets it</text>
+    <text x="570" y="658" fill="#94a3b8">then (score*7 + new*3) / 10</text>
+    <text x="570" y="686" fill="#94a3b8">events: Registered, Submitted, Revoked</text>
+  </g>
+
+  <!-- right: readers -->
+  <g font-size="19">
+    <rect x="1210" y="170" width="330" height="140" rx="14" fill="#0f1a2e" stroke="#4ade80" stroke-width="3"/>
+    <text x="1235" y="210" fill="#e2e8f0" font-size="22" font-weight="bold">gnoweb page</text>
+    <text x="1235" y="242" fill="#94a3b8">Render("") dashboard</text>
+    <text x="1235" y="268" fill="#94a3b8">Render("agent/&lt;addr&gt;")</text>
+
+    <rect x="1210" y="360" width="330" height="150" rx="14" fill="#0f1a2e" stroke="#4ade80" stroke-width="3"/>
+    <text x="1235" y="400" fill="#e2e8f0" font-size="22" font-weight="bold">Free queries</text>
+    <text x="1235" y="432" fill="#94a3b8">VerifyEvidenceHash</text>
+    <text x="1235" y="458" fill="#94a3b8">GetAgentScoreBps</text>
+    <text x="1235" y="484" fill="#94a3b8">GetSummary</text>
+
+    <rect x="1210" y="560" width="330" height="150" rx="14" fill="#0f1a2e" stroke="#4ade80" stroke-width="3"/>
+    <text x="1235" y="600" fill="#e2e8f0" font-size="22" font-weight="bold">Python CLI</text>
+    <text x="1235" y="632" fill="#94a3b8">digest and score math offline</text>
+    <text x="1235" y="658" fill="#94a3b8">status and render through</text>
+    <text x="1235" y="684" fill="#94a3b8">gnomcp</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke-width="4" fill="none">
+    <path d="M390 230 L545 280" stroke="#7dd3fc" marker-end="url(#a)"/>
+    <path d="M390 415 L545 390" stroke="#7dd3fc" marker-end="url(#a)"/>
+    <path d="M390 595 L545 500" stroke="#7dd3fc" marker-end="url(#a)"/>
+    <path d="M1080 280 L1205 240" stroke="#4ade80" marker-end="url(#g)"/>
+    <path d="M1080 480 L1205 435" stroke="#4ade80" marker-end="url(#g)"/>
+    <path d="M1080 600 L1205 630" stroke="#4ade80" marker-end="url(#g)"/>
+  </g>
+
+  <text x="60" y="830" fill="#64748b" font-size="18">gno.land/r/g185lernv9lg3c9akmyma2zusur5nrrmfqcfawql/aegis_attest</text>
+  <text x="60" y="858" fill="#64748b" font-size="18">Writes cost gas. Reads are free.</text>
+</svg>

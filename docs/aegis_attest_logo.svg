@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#0f1a2e"/>
+      <stop offset="100%" stop-color="#050a14"/>
+    </radialGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="check" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="shieldClip">
+      <path d="M512 250 L716 322 L716 520 C716 650 628 742 512 792 C396 742 308 650 308 520 L308 322 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <circle cx="512" cy="512" r="392" fill="none" stroke="#1e3a5f" stroke-width="4" stroke-dasharray="18 14"/>
+  <path d="M512 128 L812 234 L812 520 C812 712 682 846 512 912 C342 846 212 712 212 520 L212 234 Z"
+        fill="none" stroke="url(#frame)" stroke-width="22" stroke-linejoin="round"/>
+  <circle cx="512" cy="128" r="16" fill="#38bdf8"/>
+  <circle cx="812" cy="234" r="16" fill="#38bdf8"/>
+  <circle cx="212" cy="234" r="16" fill="#7dd3fc"/>
+  <circle cx="512" cy="912" r="16" fill="#0ea5e9"/>
+  <path d="M512 250 L716 322 L716 520 C716 650 628 742 512 792 C396 742 308 650 308 520 L308 322 Z"
+        fill="#0a1426" stroke="#1d6fa5" stroke-width="8" stroke-linejoin="round"/>
+  <g clip-path="url(#shieldClip)" stroke="#1e3a5f" stroke-width="3">
+    <line x1="308" y1="390" x2="716" y2="390"/>
+    <line x1="308" y1="470" x2="716" y2="470"/>
+    <line x1="308" y1="550" x2="716" y2="550"/>
+    <line x1="308" y1="630" x2="716" y2="630"/>
+    <line x1="410" y1="250" x2="410" y2="792"/>
+    <line x1="512" y1="250" x2="512" y2="792"/>
+    <line x1="614" y1="250" x2="614" y2="792"/>
+  </g>
+  <path d="M408 528 L482 602 L632 432 L632 792 L408 792 Z" fill="url(#fill)" clip-path="url(#shieldClip)"/>
+  <path d="M408 528 L482 602 L632 432" fill="none" stroke="url(#check)" stroke-width="34"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="408" cy="528" r="20" fill="#0a1426" stroke="#38bdf8" stroke-width="9"/>
+  <circle cx="632" cy="432" r="24" fill="#22c55e" stroke="#dcfce7" stroke-width="6"/>
+</svg>

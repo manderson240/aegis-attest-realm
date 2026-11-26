@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": "",
+  "result": {
+    "response": {
+      "ResponseBase": {
+        "Error": null,
+        "Data": "KCJhZ2VudHM9MHx0b3RhbF9hdHRlc3RhdGlvbnM9MHxhY3RpdmU9MHxyZXZva2VkPTB8aGVpZ2h0PTE0MTk4NDQiIHN0cmluZyk=",
+        "Events": null,
+        "Log": "",
+        "Info": ""
+      },
+      "Key": null,
+      "Value": null,
+      "Proof": null,
+      "Height": "0"
+    }
+  }
+}
